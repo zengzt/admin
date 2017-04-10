@@ -164,11 +164,6 @@ public class Manager extends HttpServlet {
 			String c=request.getParameter("new");
 			String d=request.getParameter("new1");
 			String e=ma.username(a);
-			System.out.println(a);
-			System.out.println(b);
-			System.out.println(c);
-			System.out.println(d);
-			System.out.println(e);
 			if (e.equals(b) && c.equals(d) && ma.modify_password(c, a)>0){
 				response.sendRedirect("success.jsp");	
 			}
@@ -176,8 +171,6 @@ public class Manager extends HttpServlet {
 				response.sendRedirect("error.jsp");
 			}
 		}
-		
-		
 		
 		else if ("book_modify".equals(action)) {
 			//ÐÞ¸ÄÍ¼Êé
@@ -187,8 +180,8 @@ public class Manager extends HttpServlet {
 				int aa=Integer.valueOf(a[i]);
 				String[] ff=request.getParameterValues(a[i]);
 				int c=0,d=0,e=0;
-				c=Integer.valueOf(ff[0]);
-				d=Integer.valueOf(ff[1]);
+				d=Integer.valueOf(ff[0]);
+				c=Integer.valueOf(ff[1]);
 				e=Integer.valueOf(ff[2]);
 				int f=ma.book_modify(aa, c, d, e);
 				count=count+f;
@@ -209,9 +202,6 @@ public class Manager extends HttpServlet {
 				String[] cd=request.getParameterValues(a[i]);
 				String b="",c="";
 				int e=0,g=0;
-				for (String string : cd) {
-					System.out.println(string);
-				}
 				b=cd[0];c=cd[1];e=Integer.valueOf(cd[2]);g=Integer.valueOf(cd[3]);
 				int f=ma.member_modify(aa,b,c,e,g);
 				count=count+f;
@@ -233,7 +223,6 @@ public class Manager extends HttpServlet {
 				String ccc=a[i]+"(1)";
 				String ddd=a[i]+"(2)";
 				String eee=a[i]+"(3)";
-				System.out.println();
 				b=request.getParameter(a[i]);
 				if (request.getParameter(ccc)!=null){ c=1; }
 				if (request.getParameter(ddd)!=null){ d=1; }

@@ -54,19 +54,19 @@
 			<tr>
 				<td><input type="checkbox" value="<%= book_modify.getInt(1) %>" name="checkbox1"></td>
 				<td><center><%= book_modify.getString(2) %></center></td>
-				<td><center><input type="text" name="<%= book_modify.getInt(1) %>" value="<%= book_modify.getInt(3) %>"></center></td>
+				<td><center><input type="text" name="<%= book_modify.getInt(1) %>" value="<%= book_modify.getInt(4) %>"></center></td>
 				<td><select name="<%= book_modify.getInt(1) %>">
 					<% 
  						ResultSet bookstype=ma.bookstype();
  						try {
  							while(bookstype.next()){
 					%>
- 				  	<option value="<%= bookstype.getInt(1) %>"><%= bookstype.getString(2) %></option> 
+ 				  	<option value="<%= bookstype.getInt(1) %>" <% if (book_modify.getInt(3)==bookstype.getInt(1)){%> selected="selected" <%} %>><%= bookstype.getString(2) %></option> 
  				<% }}catch(Exception e){}%> 
  					</select></td>
  				<td><select name="<%= book_modify.getInt(1) %>">
- 				  	<option value="1">推荐</option> 
- 				  	<option value="0">不推荐</option> 
+ 				  	<option value="1" >推荐</option> 
+ 				  	<option value="0" <% if (book_modify.getInt(5)==0){%> selected="selected" <%} %>>不推荐</option> 
  				</select></td> 
 			</tr>
 			<% }}catch(Exception e){}finally{dao1.close();} %>

@@ -65,7 +65,7 @@
  						try {
  							while(membertype.next()){
 					%>
- 				  	<option value="<%= membertype.getInt(1) %>"><%= membertype.getString(2) %></option> 
+ 				  	<option value="<%= membertype.getInt(1) %>" <% if (get_member.getInt(6)==membertype.getInt(1)){%> selected="selected" <%} %>><%= membertype.getString(2) %></option> 
  				<% }}catch(Exception e){}%> 
  					</select></td>
 			</tr>
