@@ -72,7 +72,7 @@
 	}catch(Exception e){
 	}
 	%>
-
+<HR style="FILTER: alpha(opacity=0,finishopacity=100,style=1)" width="100%" color=#987cb9 SIZE=3>
 	
 </body>
 </html>
