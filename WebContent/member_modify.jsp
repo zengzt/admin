@@ -56,10 +56,10 @@
 		
 			<tr>
 				<td><input type="checkbox" value="<%= get_member.getInt(1) %>" name="checkbox1"></td>
-				<td><center><input type="text" name="name" value="<%= get_member.getString(2) %>"></center></td>
-				<td><center><input type="text" name="password" value="<%= get_member.getString(3) %>"></center></td>
-				<td><center><input type="text" name="phone" value="<%= get_member.getInt(5) %>"></center></td>
-				<td><select name="membertype">
+				<td><center><input type="text" name="<%= get_member.getInt(1) %>" value="<%= get_member.getString(2) %>"></center></td>
+				<td><center><input type="text" name="<%= get_member.getInt(1) %>" value="<%= get_member.getString(3) %>"></center></td>
+				<td><center><input type="text" name="<%= get_member.getInt(1) %>" value="<%= get_member.getInt(5) %>"></center></td>
+				<td><select name="<%= get_member.getInt(1) %>">
 					<% 
  						ResultSet membertype=ma.membertype();
  						try {
@@ -69,7 +69,7 @@
  				<% }}catch(Exception e){}%> 
  					</select></td>
 			</tr>
-			<% }}catch(Exception e){} %>
+			<% }}catch(Exception e){}finally{dao1.close();} %>
 	</table>
 	<input type="submit" value="确认" onclick="return still()">
 	</form>

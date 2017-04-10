@@ -61,7 +61,7 @@
 				<td><center><%= del_member.getInt(5) %></center></td>
  				<td><center><%= del_member.getInt(6) %></center></td> 
 			</tr>
-			<% }}catch(Exception e){} %>
+			<% }}catch(Exception e){}finally{dao1.close();} %>
 	</table>
 	<input type="submit" value="删除">
 	</form>

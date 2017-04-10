@@ -61,7 +61,7 @@
 			</tr>
 			<%
 				}
-			}catch(Exception e){}
+			}catch(Exception e){}finally{dao1.close();}
 		%>
 			<tr><td><input type="submit" value="还书" onclick="return still()"></td></tr>
 		</form>

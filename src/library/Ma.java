@@ -296,9 +296,18 @@ public class Ma {
 	}
 	
 	public static int del_member(int a){
-		//删除图书
+		//删除会员
 		int b=0;
 		String sql="DELETE from member where mid="+a;
+		b=dao.update(sql);
+		dao.close();
+		return b;	
+	}
+	
+	public static int del_administrator(int a){
+		//删除管理员
+		int b=0;
+		String sql="DELETE from administrators where id="+a;
 		b=dao.update(sql);
 		dao.close();
 		return b;	

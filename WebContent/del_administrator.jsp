@@ -19,8 +19,7 @@
 		}
 		return count;
 	}
-	
-	function still() {
+	function still(){
 		if (getSelectedCount()<1){
 			alert("至少选择一个！！！");
 			return false;
@@ -37,33 +36,34 @@
 	<%@ include file="head.jsp" %>
 	<%@ include file="option.jsp" %>
 <center>
-	<form action="Manager?action=del_books" name="form2" method="post">
+	<form action="Manager?action=del_administrator" name="form2" method="post">
 	<table>
 			<tr>
 				<td><input type="checkbox" value="" name="checkbox" onclick="selectAll(this.checked)"></td>
-				<td><center>图书名字  </center></td>
-				<td><center>图书类型   </center></td>
-				<td><center>图书数量 </center></td>
-				<td><center>推荐与否  </center></td>
+				<td><center>管理员账号</center></td>
+				<td><center>管理员密码</center></td>
+				<td><center>图书管理权限</center></td>
+				<td><center>会员管理权限</center></td>
+				<td><center>管理管理员权限</center></td>
 			</tr>
 
 	
 		<%
-			ResultSet del_books=ma.get_book();
+			ResultSet get_administrator=ma.get_administrator();
 			try {
-				while(del_books.next()){
+				while(get_administrator.next()){
 		%>	
-		
 			<tr>
-				<td><input type="checkbox" value="<%= del_books.getInt(1) %>" name="checkbox1"></td>
-				<td><center><%= del_books.getString(2) %></center></td>
-				<td><center><%= del_books.getInt(3) %></center></td>
-				<td><center><%= del_books.getInt(4) %></center></td>
- 				<td><center><%= del_books.getInt(5) %></center></td> 
+				<td><% if (get_administrator.getInt(1)!=1){ %><input type="checkbox" value="<%= get_administrator.getInt(1) %>" name="checkbox1"><% } %></td>
+				<td><center><%= get_administrator.getString(2) %></center></td>
+				<td><center><%= get_administrator.getString(3) %></center></td>
+				<td><input type="checkbox"  <% if (get_administrator.getInt(4)==1){ %> checked="checked" <% } %>></td>
+				<td><input type="checkbox"  <% if (get_administrator.getInt(5)==1){ %> checked="checked" <% } %>></td>
+				<td><input type="checkbox"  <% if (get_administrator.getInt(6)==1){ %> checked="checked" <% } %>></td>
 			</tr>
 			<% }}catch(Exception e){}finally{dao1.close();} %>
 	</table>
-	<input type="submit" value="删除">
+	<input type="submit" value="确认" onclick="return still()">
 	</form>
 </center>
 </body>

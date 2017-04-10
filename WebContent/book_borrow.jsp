@@ -44,7 +44,7 @@
 					<td><center><%= book_borrow.getInt(6) %></center></td>
 				</tr>
 				<%
-				}}catch(Exception e){}
+				}}catch(Exception e){}finally{dao1.close();}
 				%>
 			</table>
 		</center>

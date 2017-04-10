@@ -206,10 +206,13 @@ public class Manager extends HttpServlet {
 			int count=0;
 			for (int i=0;i<a.length;i++){
 				int aa=Integer.valueOf(a[i]);
-				String b=request.getParameter("name");
-				String c=request.getParameter("password");
-				int e=Integer.valueOf(request.getParameter("phone"));
-				int g=Integer.valueOf(request.getParameter("membertype"));
+				String[] cd=request.getParameterValues(a[i]);
+				String b="",c="";
+				int e=0,g=0;
+				for (String string : cd) {
+					System.out.println(string);
+				}
+				b=cd[0];c=cd[1];e=Integer.valueOf(cd[2]);g=Integer.valueOf(cd[3]);
 				int f=ma.member_modify(aa,b,c,e,g);
 				count=count+f;
 			}
@@ -224,15 +227,19 @@ public class Manager extends HttpServlet {
 			//修改管理员
 			String[] a=request.getParameterValues("checkbox1");
 			int count=0;
+			String b="";
 			int c=0,d=0,e=0;
 			for (int i=0;i<a.length;i++){
-				String[] j=request.getParameterValues(a[i]);
-				String b=j[0];
-				if(j[1]!=null){c=1;}
-				if(j[2]!=null){d=1;}
-				if(j[3]!=null){e=1;}
-				int aa=Integer.valueOf(a[i]);
+				String ccc=a[i]+"(1)";
+				String ddd=a[i]+"(2)";
+				String eee=a[i]+"(3)";
+				System.out.println();
+				b=request.getParameter(a[i]);
+				if (request.getParameter(ccc)!=null){ c=1; }
+				if (request.getParameter(ddd)!=null){ d=1; }
+				if (request.getParameter(eee)!=null){ e=1; }
 				int co=0;
+				int aa=Integer.valueOf(a[i]);
 				co=ma.modify_administrator(aa, b, c, d, e);
 				count=count+co;
 			}
@@ -261,7 +268,7 @@ public class Manager extends HttpServlet {
 		}
 		
 		else if ("del_member".equals(action)) {
-			//删除图书
+			//删除会员
 			int count=0;
 			String[] a=request.getParameterValues("checkbox1");
 			for (int i=0;i<a.length;i++){
@@ -275,6 +282,20 @@ public class Manager extends HttpServlet {
 			}
 		}
 		
+		else if ("del_administrator".equals(action)) {
+			//删除管理员
+			int count=0;
+			String[] a=request.getParameterValues("checkbox1");
+			for (int i=0;i<a.length;i++){
+				int b=ma.del_administrator(Integer.valueOf(a[i]));
+				count=count+b;
+			}
+			if (count==a.length){
+				response.sendRedirect("success.jsp");
+			}else{
+				response.sendRedirect("error.jsp");
+			}
+		}
 		
 		
 		

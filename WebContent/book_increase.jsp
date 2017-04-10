@@ -34,7 +34,7 @@
 				%>
 				  	<option value="<%= bookstype.getInt(1) %>"><%= bookstype.getString(2) %></option>
 				<%
-				}}catch(Exception e){}
+				}}catch(Exception e){}finally{dao1.close();}
 				%>
 					</select>
 				</center></td>

@@ -28,7 +28,7 @@
 			<td><center><%= display.getString(3) %></center></td>
 			<td><center><%= display.getString(4) %></center></td>
 		</tr>	
-		<% } %>	
+		<% } dao1.close(); %>	
 	</table>
 </center>
 </body>

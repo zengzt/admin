@@ -46,7 +46,7 @@
 					<td><center><%= member_query.getInt(7) %></center></td>
 				</tr>
 				<%
-				}}catch(Exception e){}
+				}}catch(Exception e){}finally{dao1.close();}
 				%>
 			</table>
 		</center>

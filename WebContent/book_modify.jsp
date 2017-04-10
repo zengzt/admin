@@ -69,7 +69,7 @@
  				  	<option value="0">不推荐</option> 
  				</select></td> 
 			</tr>
-			<% }}catch(Exception e){} %>
+			<% }}catch(Exception e){}finally{dao1.close();} %>
 	</table>
 	<input type="submit" value="确认" onclick="return still()">
 	</form>

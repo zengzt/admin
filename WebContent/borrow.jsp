@@ -56,7 +56,7 @@
 				%>
 				  	<option value="<%= books.getInt(1) %>"><%= books.getString(2) %></option>
 				<%
-				}}catch(Exception e){}
+				}}catch(Exception e){}finally{dao1.close();}
 				%>
 				</select></td>
 			<td><center><a href="still.jsp">->还</a></center> </td>

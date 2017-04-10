@@ -56,6 +56,7 @@
 				<td>管理员</td>
 				<td><a href="add_administrator.jsp">增加管理员</a></td>
 				<td><a href="modify_administrator.jsp">修改权限</a></td>
+				<td><a href="del_administrator.jsp">删除管理员</a></td>
 			</tr>
 			<% } %> 
 			<tr>

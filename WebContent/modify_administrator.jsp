@@ -54,14 +54,14 @@
 				while(get_administrator.next()){
 		%>	
 			<tr>
-				<td><input type="checkbox" value="<%= get_administrator.getInt(1) %>" name="checkbox1"></td>
+				<td><% if (get_administrator.getInt(1)!=1){ %><input type="checkbox"  value="<%= get_administrator.getInt(1) %>" name="checkbox1"><% } %></td>
 				<td><center><%= get_administrator.getString(2) %></center></td>
-				<td><center><input type="text" name="<%= get_administrator.getInt(1) %>" value="<%= get_administrator.getString(3) %>"></center></td>
-				<td><input type="checkbox"  name="<%= get_administrator.getInt(1) %>" <% if (get_administrator.getInt(4)==1){ %> checked="checked" <% } %>></td>
-				<td><input type="checkbox"  name="<%= get_administrator.getInt(1) %>" <% if (get_administrator.getInt(5)==1){ %> checked="checked" <% } %>></td>
-				<td><input type="checkbox"  name="<%= get_administrator.getInt(1) %>" <% if (get_administrator.getInt(6)==1){ %> checked="checked" <% } %>></td>
+				<td><center><input type="text" name="<%= get_administrator.getInt(1) %>"  value="<%= get_administrator.getString(3) %>"></center></td>
+				<td><input type="checkbox"  name="<%= String.valueOf(get_administrator.getInt(1)) %>(1)" <% if (get_administrator.getInt(4)==1){ %> checked="checked" <% } %>></td>
+				<td><input type="checkbox"  name="<%= String.valueOf(get_administrator.getInt(1)) %>(2)" <% if (get_administrator.getInt(5)==1){ %> checked="checked" <% } %>></td>
+				<td><input type="checkbox"  name="<%= String.valueOf(get_administrator.getInt(1)) %>(3)" <% if (get_administrator.getInt(6)==1){ %> checked="checked" <% } %>></td>
 			</tr>
-			<% }}catch(Exception e){} %>
+			<% }}catch(Exception e){}finally{dao1.close();} %>
 	</table>
 	<input type="submit" value="确认" onclick="return still()">
 	</form>
